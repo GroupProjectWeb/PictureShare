@@ -3,7 +3,11 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
-
+    
+    var start: CGPoint?
+    var x = false
+    
+    let imagePicker = UIImagePickerController()
     @IBOutlet var username: UITextField!
     
     @IBOutlet var errorLabel: UILabel!
@@ -65,22 +69,25 @@ class ViewController: UIViewController {
         }
         
     }
-
-
-
-//gallery button
+    
+    
+    
+    //gallery button
     @IBAction func Gallery(sender: AnyObject) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     //gallery button
-
-   
+    
+    
     
     //camera button
-    @IBAction func openCAmera(sender: AnyObject) {
-imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+    @IBAction func openCamera(sender: AnyObject) {
+        
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         presentViewController(imagePicker, animated: true, completion: nil)
+       
         //camera button
         
     }
@@ -88,9 +95,9 @@ imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
     //image picker function to dissmiss camera after getting picture
     func  imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-                   self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
         
-       
+        
     }
     
     //image picker function to dissmiss camera  and photo library after getting picture
@@ -131,28 +138,31 @@ imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         imageView.image = newImage
+        
+        
+    }
     
     
-}
-
-
-
-
-
-
+    
+    
+    
+    
     
     @IBOutlet weak var imageView: UIImageView!
     
     
     override func viewDidLoad() {
-  
+        
         super.viewDidLoad()
+        
+        imageView.image = UIImage(named: "a.jpg")
+        self.imageView.image = UIImage(named: "aa.png")
         
     }
     
-override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
 }
 
