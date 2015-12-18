@@ -51,7 +51,27 @@ class ViewController: UIViewController {
             
         }
         
-    }
+    }//under construction
+        //image picker function to dissmiss camera  and photo library after getting picture
+    
+  /*  func imagePickerController(picker:UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary)
+    {
+        if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
+        {
+            // Access the uncropped image from info dictionary
+            let imageToSave: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as! UIImage
+         //   let imageToSave1: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as! UIImage //same but with different way
+            
+        //    UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil, nil)
+            
+           
+       //     self.dismissViewControllerAnimated(true, completion: nil)
+            
+            
+        }
+        
+    }    *///image picker function to dissmiss camera  and photo library after getting picture
+    
     
     override func viewWillAppear(animated: Bool) {
         
@@ -92,20 +112,42 @@ class ViewController: UIViewController {
         
     }
     
-    //image picker function to dissmiss camera after getting picture
-    func  imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-    }
+   
+
     
-    //image picker function to dissmiss camera  and photo library after getting picture
+  
+    
+  
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         let touch = touches.first as UITouch!
         start = touch.locationInView(self.imageView)
+        view.endEditing(true)
+
         
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
@@ -154,8 +196,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        imageView.image = UIImage(named: "a.jpg")
+      
         self.imageView.image = UIImage(named: "aa.png")
         
     }
